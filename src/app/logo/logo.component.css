@@ -1,0 +1,22 @@
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #8B0000; /* Dark red color for a wine theme */
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.logo img {
+  height: 40px;
+  width: auto;
+}
+
+.logo span {
+  font-family: 'Georgia', serif; /* Elegant font for a wine business */
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
