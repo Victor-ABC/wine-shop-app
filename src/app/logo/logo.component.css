@@ -20,3 +20,13 @@
   font-weight: bold;
   color: #333;
 }
+
+.logo small {
+  font-size: 12px;
+  font-weight: normal;
+  color: #555;
+  margin-top: 5px;
+  display: block;
+  text-align: center;
+  line-height: 1.4;
+}

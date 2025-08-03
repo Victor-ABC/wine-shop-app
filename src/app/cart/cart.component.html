@@ -16,6 +16,6 @@
   </div>
   <div *ngIf="items.length > 0" class="cart-summary">
     <div>Gesamtsumme: <strong>{{ total | currency:'EUR':'symbol':'1.2-2':'de' }}</strong></div>
-    <button class="checkout-btn" (click)="goToCheckout()">Zur Kasse</button>
+    <button class="checkout-btn" (click)="goToCheckout()">Zur Kasse (kein echter kauf)</button>
   </div>
 </div>
