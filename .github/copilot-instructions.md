@@ -1,0 +1,3 @@
+<!-- Use this file to provide workspace-specific custom instructions to Copilot. For more details, visit https://code.visualstudio.com/docs/copilot/copilot-customization#_use-a-githubcopilotinstructionsmd-file -->
+
+This project is an Angular 19 single page application for a wine business. Use standalone components, local storage for cart persistence, and provide a modern UI for About, Shop (with categories, fuzzy search, cart, and checkout), and Current Events sections. On checkout, collect user info and send an email with the order details to vcorbet24@gmail.com. Use example data for wines and categories. No backend required.

@@ -1,0 +1,40 @@
+.events-container {
+  max-width: 700px;
+  margin: 2.5rem auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.08), 0 1.5px 6px rgba(0,0,0,0.03);
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+}
+.events-container h2 {
+  color: #a8325e;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+.events-container ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.events-container li {
+  font-size: 1.1rem;
+  color: #444;
+  margin-bottom: 1rem;
+  background: #faf9f6;
+  border-radius: 1rem;
+  padding: 1rem 1.5rem;
+  box-shadow: 0 1px 4px rgba(168,50,94,0.06);
+}
+.events-container li strong {
+  color: #a8325e;
+}
+@media (max-width: 700px) {
+  .events-container {
+    padding: 1rem;
+  }
+  .events-container li {
+    padding: 0.7rem 1rem;
+  }
+}

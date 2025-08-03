@@ -1,0 +1,279 @@
+.checkout-container {
+  max-width: 500px;
+  margin: 2.5rem auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.08), 0 1.5px 6px rgba(0,0,0,0.03);
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+}
+.checkout-container h2 {
+  color: #a8325e;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+label {
+  font-size: 1rem;
+  color: #a8325e;
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+input[type="text"],
+input[type="email"],
+select {
+  padding: 0.9rem 1.2rem;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 1.2rem;
+  font-size: 1.08rem;
+  background: #faf9f6;
+  transition: border 0.2s, box-shadow 0.2s;
+  margin-top: 0.2rem;
+  box-shadow: 0 1px 4px rgba(168,50,94,0.04);
+}
+input[type="text"]:focus,
+input[type="email"]:focus,
+select:focus {
+  border: 1.5px solid #a8325e;
+  outline: none;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(168,50,94,0.10);
+}
+select {
+  color: #444;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' fill='gray' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4 6l4 4 4-4'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1.2em;
+}
+button[type="submit"] {
+  margin-top: 1rem;
+  background: linear-gradient(90deg, #a8325e 60%, #e96443 100%);
+  color: #fff;
+  border: none;
+  border-radius: 2rem;
+  padding: 0.6rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(168,50,94,0.08);
+  transition: background 0.2s, transform 0.2s;
+}
+button[type="submit"]:hover {
+  background: linear-gradient(90deg, #e96443 60%, #a8325e 100%);
+  transform: scale(1.06);
+}
+.success {
+  margin-top: 1.5rem;
+  color: #2e7d32;
+  font-weight: 600;
+  background: #eafbe7;
+  border-radius: 1rem;
+  padding: 1rem;
+  text-align: center;
+}
+.checkout-row {
+  display: flex;
+  gap: 2rem;
+}
+.checkout-col {
+  flex: 1 1 250px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+.checkout-summary {
+  flex: 1 1 220px;
+  background: #faf9f6;
+  border-radius: 1.2rem;
+  padding: 1.2rem 1.5rem;
+  box-shadow: 0 1px 8px rgba(168,50,94,0.07);
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  min-width: 220px;
+}
+.summary-block {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.05rem;
+  margin-bottom: 0.2rem;
+}
+.summary-block.total {
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: #a8325e;
+  margin-top: 1.2rem;
+}
+.summary-label {
+  color: #444;
+}
+.summary-value {
+  color: #222;
+}
+.checkout-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2.2rem;
+  gap: 1.5rem;
+}
+.clear-btn {
+  background: #fff;
+  color: #a8325e;
+  border: 1.5px solid #a8325e;
+  border-radius: 2rem;
+  padding: 0.6rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.clear-btn:hover {
+  background: #a8325e;
+  color: #fff;
+}
+.next-btn {
+  background: linear-gradient(90deg, #a8325e 60%, #e96443 100%);
+  color: #fff;
+  border: none;
+  border-radius: 2rem;
+  padding: 0.7rem 2.2rem;
+  font-size: 1.15rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 1px 8px rgba(168,50,94,0.10);
+  transition: background 0.2s, transform 0.2s;
+}
+.next-btn:disabled {
+  background: #e0e0e0;
+  color: #aaa;
+  cursor: not-allowed;
+}
+.next-btn:hover:not(:disabled) {
+  background: linear-gradient(90deg, #e96443 60%, #a8325e 100%);
+  transform: scale(1.06);
+}
+.checkout-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid #f0e0e6;
+}
+.checkout-tabs > div {
+  flex: 1 1 120px;
+  min-width: 120px;
+  text-align: center;
+  padding: 0.8rem 0;
+  font-size: 1.1rem;
+  color: #a8325e;
+  font-weight: 500;
+  border-bottom: 3px solid transparent;
+  background: #faf9f6;
+  cursor: pointer;
+  transition: border 0.2s, background 0.2s;
+  white-space: nowrap;
+}
+.checkout-tabs > div.active {
+  border-bottom: 3px solid #a8325e;
+  background: #fff;
+  color: #e96443;
+}
+@media (max-width: 600px) {
+  .checkout-tabs {
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+  .checkout-tabs > div {
+    min-width: 0;
+    font-size: 1rem;
+    padding: 0.6rem 0;
+  }
+}
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #f0e0e6;
+}
+.cart-item img {
+  width: 80px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 0.75rem;
+  background: #f8f6f3;
+  box-shadow: 0 2px 8px rgba(168,50,94,0.08);
+}
+.cart-item-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+.cart-item h4 {
+  margin: 0 0 0.2rem 0;
+  color: #a8325e;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+.cart-item span {
+  font-size: 1rem;
+  color: #444;
+}
+.cart-item button {
+  margin-top: 0.5rem;
+  background: linear-gradient(90deg, #a8325e 60%, #e96443 100%);
+  color: #fff;
+  border: none;
+  border-radius: 2rem;
+  padding: 0.4rem 1.2rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(168,50,94,0.08);
+  transition: background 0.2s, transform 0.2s;
+}
+.cart-item button:hover {
+  background: linear-gradient(90deg, #e96443 60%, #a8325e 100%);
+  transform: scale(1.06);
+}
+.qty-input {
+  width: 3.2rem;
+  padding: 0.3rem 0.5rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 1rem;
+  font-size: 1rem;
+  text-align: center;
+  background: #faf9f6;
+  margin-left: 0.5rem;
+}
+.qty-input:focus {
+  border: 1.5px solid #a8325e;
+  outline: none;
+}
+@media (max-width: 700px) {
+  .checkout-container {
+    padding: 1rem;
+  }
+}
+@media (max-width: 900px) {
+  .checkout-row {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .checkout-summary {
+    min-width: 0;
+    width: 100%;
+  }
+}

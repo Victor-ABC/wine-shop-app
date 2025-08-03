@@ -1,0 +1,25 @@
+.about-container {
+  max-width: 700px;
+  margin: 2.5rem auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.08), 0 1.5px 6px rgba(0,0,0,0.03);
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+}
+.about-container h2 {
+  color: #a8325e;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+.about-container p {
+  font-size: 1.1rem;
+  color: #444;
+  margin: 0;
+}
+@media (max-width: 700px) {
+  .about-container {
+    padding: 1rem;
+  }
+}

@@ -1,0 +1,39 @@
+<div class="shop-container">
+  <div class="shop-header">
+    <input
+      type="text"
+      placeholder="Weine suchen..."
+      [(ngModel)]="searchQuery"
+      (ngModelChange)="onSearch($event)"
+    />
+    <div class="categories">
+      <button
+        *ngFor="let cat of categories"
+        [class.selected]="selectedCategory === cat"
+        (click)="filterByCategory(cat)"
+      >
+        {{ cat }}
+      </button>
+      <button (click)="filterByCategory('')" [class.selected]="!selectedCategory">Alle</button>
+    </div>
+  </div>
+  <div *ngIf="successMessage" class="success-message">{{ successMessage }}</div>
+  <div class="product-list">
+    <div class="product-card" *ngFor="let wine of filteredWines">
+      <a [routerLink]="['/product', wine.id]" class="product-link">
+        <img [src]="wine.image" [alt]="wine.name" />
+        <h3>{{ wine.name }}</h3>
+        <p>{{ wine.description }}</p>
+        <span class="category">{{ wine.category }}</span>
+        <div class="price">{{ wine.price | currency:'EUR':'symbol':'1.2-2':'de' }}</div>
+      </a>
+      <div class="add-to-cart-row">
+        <input type="number" min="1" [(ngModel)]="quantities[wine.id]" [value]="quantities[wine.id] || 1" class="qty-input" />
+        <button (click)="addToCart(wine)">In den Warenkorb</button>
+      </div>
+    </div>
+  </div>
+</div>
+<a class="cart-fab" routerLink="/cart" title="Warenkorb anzeigen">
+  🛒
+</a>

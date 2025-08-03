@@ -1,0 +1,113 @@
+<div class="checkout-container">
+  <div class="checkout-tabs">
+    <div [class.active]="step === 1">1. Warenkorb</div>
+    <div [class.active]="step === 2">2. Adresse</div>
+    <div [class.active]="step === 3">3. Übersicht</div>
+    <div [class.active]="step === 4">4. Danke</div>
+  </div>
+
+  <!-- Step 1: Warenkorb -->
+  <div *ngIf="step === 1">
+    <h2>Warenkorb</h2>
+    <div *ngIf="items.length === 0" class="empty-cart">Ihr Warenkorb ist leer.</div>
+    <div *ngFor="let item of items" class="cart-item">
+      <img [src]="item.wine.image" [alt]="item.wine.name" />
+      <div class="cart-item-details">
+        <h4>{{ item.wine.name }}</h4>
+        <p>{{ item.wine.description }}</p>
+        <span class="category">{{ item.wine.category }}</span>
+        <div class="price">{{ item.wine.price | currency:'EUR':'symbol':'1.2-2':'de' }}</div>
+        <div>Menge: <input type="number" min="1" [(ngModel)]="item.quantity" (ngModelChange)="updateQuantity(item, item.quantity)" class="qty-input" /></div>
+        <button (click)="remove(item.wine.id)">Entfernen</button>
+      </div>
+    </div>
+    <div *ngIf="items.length > 0" class="cart-summary">
+      <div>Gesamtsumme: <strong>{{ total | currency:'EUR':'symbol':'1.2-2':'de' }}</strong></div>
+    </div>
+    <div class="checkout-actions">
+      <button type="button" class="clear-btn" (click)="clearCart()">Warenkorb leeren</button>
+      <button type="button" class="next-btn" [disabled]="!canContinueFromCart()" (click)="nextStep()">Weiter</button>
+    </div>
+  </div>
+
+  <!-- Step 2: Adresse -->
+  <form *ngIf="step === 2" (ngSubmit)="nextStep()">
+    <h2>Lieferadresse</h2>
+    <label>Name:
+      <input name="name" [(ngModel)]="name" required />
+    </label>
+    <label>E-Mail:
+      <input name="email" [(ngModel)]="email" required type="email" />
+    </label>
+    <label>Adresse:
+      <input name="address" [(ngModel)]="address" required />
+    </label>
+    <label>Lieferung:
+      <select [(ngModel)]="delivery" name="delivery" required>
+        <option value="">- bitte wählen -</option>
+        <option value="dhl">DHL-Paket</option>
+        <option value="abholung">Abholung im Weingut</option>
+      </select>
+    </label>
+    <label>Zahlungsart:
+      <select [(ngModel)]="payment" name="payment" required>
+        <option value="">- bitte wählen -</option>
+        <option value="rechnung">Rechnung</option>
+        <option value="vorkasse">Vorkasse</option>
+      </select>
+    </label>
+    <div class="checkout-actions">
+      <button type="button" class="clear-btn" (click)="prevStep()">Zurück</button>
+      <button type="submit" class="next-btn" [disabled]="!canContinueFromAddress()">Weiter</button>
+    </div>
+  </form>
+
+  <!-- Step 3: Übersicht -->
+  <div *ngIf="step === 3">
+    <h2>Bestellübersicht</h2>
+    <div class="checkout-summary">
+      <div class="summary-block">
+        <div class="summary-label">Gesamtpreis Ware ({{ getBottleCount() }} Flaschen)</div>
+        <div class="summary-value">{{ total | currency:'EUR':'symbol':'1.2-2':'de' }}</div>
+      </div>
+      <div class="summary-block">
+        <div class="summary-label">Lieferung</div>
+        <div class="summary-value">{{ delivery === 'abholung' ? 'Abholung' : 'DHL-Paket' }}</div>
+      </div>
+      <div class="summary-block" *ngIf="delivery === 'dhl'">
+        <div class="summary-label">zzgl. Versandkosten</div>
+        <div class="summary-value">€ 7,50</div>
+      </div>
+      <div class="summary-block">
+        <div class="summary-label">Lieferzeit</div>
+        <div class="summary-value">2-8 Werktage</div>
+      </div>
+      <div class="summary-block">
+        <div class="summary-label">Zahlungsart</div>
+        <div class="summary-value">{{ payment ? (payment === 'rechnung' ? 'Rechnung' : 'Vorkasse') : '- bitte wählen -' }}</div>
+      </div>
+      <div class="summary-block">
+        <div class="summary-label">Inkl. 19% MwSt.</div>
+        <div class="summary-value">{{ getMwst() | currency:'EUR':'symbol':'1.2-2':'de' }}</div>
+      </div>
+      <div class="summary-block total">
+        <div class="summary-label">Gesamtpreis zu zahlen</div>
+        <div class="summary-value">{{ getTotalWithShipping() | currency:'EUR':'symbol':'1.2-2':'de' }}</div>
+      </div>
+    </div>
+    <div class="checkout-actions">
+      <button type="button" class="clear-btn" (click)="prevStep()">Zurück</button>
+      <button type="button" class="next-btn" (click)="submitOrder()">Kostenpflichtig bestellen</button>
+    </div>
+  </div>
+
+  <!-- Step 4: Danke -->
+  <div *ngIf="step === 4">
+    <h2>Vielen Dank für Ihre Bestellung!</h2>
+    <div class="success">
+      Ihre Bestellung wurde erfolgreich übermittelt.<br />
+      Sie erhalten in Kürze eine Bestätigung per E-Mail.<br />
+      Wir wünschen Ihnen viel Freude mit unseren Weinen!
+    </div>
+  </div>
+</div>

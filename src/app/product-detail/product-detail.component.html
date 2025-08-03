@@ -1,0 +1,18 @@
+<p>product-detail works!</p>
+<div *ngIf="wine" class="product-detail-container">
+  <a (click)="goToShop()" class="back-link" style="cursor:pointer">&larr; Zurück zum Shop</a>
+  <div class="product-detail-card">
+    <img [src]="wine.image" [alt]="wine.name" />
+    <div class="info">
+      <h2>{{ wine.name }}</h2>
+      <span class="category">{{ wine.category }}</span>
+      <div class="price">{{ wine.price | currency:'EUR':'symbol':'1.2-2':'de' }}</div>
+      <p>{{ wine.description }}</p>
+      <div *ngIf="successMessage" class="success-message">{{ successMessage }}</div>
+      <div class="add-to-cart-row">
+        <input type="number" min="1" [(ngModel)]="quantity" [attr.value]="quantity" class="qty-input" />
+        <button (click)="addToCart()">In den Warenkorb</button>
+      </div>
+    </div>
+  </div>
+</div>

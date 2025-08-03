@@ -1,0 +1,21 @@
+<div class="cart-container">
+  <h2>Warenkorb</h2>
+  <div *ngIf="items.length === 0" class="empty-cart">
+    Ihr Warenkorb ist leer.
+  </div>
+  <div *ngFor="let item of items" class="cart-item">
+    <img [src]="item.wine.image" [alt]="item.wine.name" />
+    <div class="cart-item-details">
+      <h4>{{ item.wine.name }}</h4>
+      <p>{{ item.wine.description }}</p>
+      <span class="category">{{ item.wine.category }}</span>
+      <div class="price">{{ item.wine.price | currency:'EUR':'symbol':'1.2-2':'de' }}</div>
+      <div>Menge: {{ item.quantity }}</div>
+      <button (click)="remove(item.wine.id)">Entfernen</button>
+    </div>
+  </div>
+  <div *ngIf="items.length > 0" class="cart-summary">
+    <div>Gesamtsumme: <strong>{{ total | currency:'EUR':'symbol':'1.2-2':'de' }}</strong></div>
+    <button class="checkout-btn" (click)="goToCheckout()">Zur Kasse</button>
+  </div>
+</div>
