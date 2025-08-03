@@ -1,9 +1,11 @@
 <nav class="main-nav">
   <app-logo></app-logo>
-  <a routerLink="/shop" routerLinkActive="active">Shop</a>
-  <a routerLink="/cart" routerLinkActive="active">Cart</a>
-  <a routerLink="/about" routerLinkActive="active">About</a>
-  <a routerLink="/events" routerLinkActive="active">Current Events</a>
+  <div class="main-nav-links">
+    <a routerLink="/shop" routerLinkActive="active">Shop</a>
+    <a routerLink="/cart" routerLinkActive="active">Cart</a>
+    <a routerLink="/about" routerLinkActive="active">About</a>
+    <a routerLink="/events" routerLinkActive="active">Current Events</a>
+  </div>
 </nav>
 <main>
   <router-outlet></router-outlet>
